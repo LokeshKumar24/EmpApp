@@ -5,6 +5,7 @@
 				<Page id="page" title="{i18n>title}">
 					<content>
                     <Text text="welcome"></Text>
+                    <Button text="Send" ></Button>
                     </content>
 				</Page>
 			</pages>
