@@ -9,7 +9,15 @@ sap.ui.define([
 
 		return Controller.extend("EA.EmployeeApp1.controller.Login", {
 			onInit: function () {
+               this.oRouter = new sap.ui.core.UIComponent.getRouterFor(this);
+            },
+            onLogin:function(){
+                debugger;
+                var id = this.getView().byId("idUsername").getValue();
+                var Password = this.getView().byId("idPassword").getValue();
 
-			}
+                this.oRouter.navTo("RouteHome");
+            }
+
 		});
 	});

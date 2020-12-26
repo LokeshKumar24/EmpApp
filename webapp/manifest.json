@@ -103,6 +103,12 @@
           "target": [
             "TargetLogin"
           ]
+        },{ 
+           "name": "RouteHome",
+          "pattern": "RouteHome",
+          "target": [
+            "TargetHome"
+          ]
         }
       ],
       "targets": {
@@ -112,6 +118,14 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
+        },
+        "TargetHome":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          
+          "viewName": "Home"
+
         }
       }
     }
