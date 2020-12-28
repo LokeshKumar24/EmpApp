@@ -1,14 +1,58 @@
-<mvc:View controllerName="EA.EmployeeApp1.controller.SplitApp" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
+<mvc:View controllerName="EA.EmployeeApp1.controller.SplitApp"
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<!-- <Shell id="shell"> -->
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
+				<Page id="page" title="{i18n>title}" showHeader="false">
 					<content>
-                    <Text text="welcome"></Text>
-                    <Button text="Send" ></Button>
+                   
+                    <SplitApp id="SplitApp" initialDetail="Home">
+                     <masterPages >
+                  <Page visible="true" showFooter="true">
+
+                     	<List itemPress=".onListItemPress"
+                          items="{master>/views}"  mode="SingleSelectMaster">
+							<items>
+								<StandardListItem title="{master>name}" type="Active"></StandardListItem>
+							</items>
+						</List>
+                  <footer >
+                    <Toolbar active="true">
+                        <content>
+                            <ToolbarSpacer/>
+                           
+                        <Button text="Request" press="onRequest"></Button>
+                        </content>
+                    </Toolbar>
+                </footer>
+                  </Page>
+               
+                     </masterPages>
+
+                     <detailPages>
+
+                     <Page id="Home">
+                     <mvc:XMLView viewName="EA.EmployeeApp1.view.Home"></mvc:XMLView>
+                     </Page>
+                     <Page id="Profile" >
+                   
+                     <mvc:XMLView viewName="EA.EmployeeApp1.view.Profile"></mvc:XMLView>
+                   
+                     </Page>
+                     <Page id="Project">
+                     <mvc:XMLView viewName="EA.EmployeeApp1.view.Project"></mvc:XMLView>
+                     </Page>
+                     <Page id="Others" >
+                     <mvc:XMLView viewName="EA.EmployeeApp1.view.Others"></mvc:XMLView>
+                     </Page>
+
+                     </detailPages>
+
+                     </SplitApp>
+                   
                     </content>
 				</Page>
 			</pages>
 		</App>
-	</Shell>
+	<!-- </Shell> -->
 </mvc:View>

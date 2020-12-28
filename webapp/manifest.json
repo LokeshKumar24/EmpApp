@@ -109,6 +109,34 @@
           "target": [
             "TargetHome"
           ]
+        },
+        { 
+           "name": "SplitApp",
+          "pattern": "SplitApp",
+          "target": [
+            "SplitApp"
+          ]
+        },
+        { 
+           "name": "Profile",
+          "pattern": "Profile",
+          "target": [
+            "Profile"
+          ]
+        },
+        { 
+           "name": "Others",
+          "pattern": "Others",
+          "target": [
+            "Others"
+          ]
+        },
+        { 
+           "name": "Project",
+          "pattern": "Project",
+          "target": [
+            "Project"
+          ]
         }
       ],
       "targets": {
@@ -126,6 +154,23 @@
           
           "viewName": "Home"
 
+        },
+         "SplitApp":{
+          "viewType": "XML",       
+          "viewName": "SplitApp"
+
+        },
+        "Project":{
+            "viewType": "XML",
+            "viewName": "Project"
+        },
+        "Profile":{
+            "viewName": "Profile",
+            "viewType": "XML"
+        },
+        "Others":{
+            "viewType": "XML",
+            "viewName": "Others"
         }
       }
     }

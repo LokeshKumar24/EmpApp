@@ -1,5 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:sf="sap.ui.layout.form" 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable">
+    <Dialog  title="ChangePassword" >
 <IconTabBar
 		id="idIconTabBarNoIcons"
 		
@@ -51,7 +52,7 @@
 				<Input id="InputAssets" type="Number" placeholder="Enter Assets "></Input>
                 <Label></Label>
 				<Button text="Submit" type="Emphasized" press="onAssets"></Button>
-
+                 <Button text="close" icon="sap-icon://decline" press="onClose" type="Reject"></Button>
 
             </sf:SimpleForm>
 				
@@ -59,5 +60,5 @@
 			
 		</items>
 	</IconTabBar>
-	
+	</Dialog>
 </core:FragmentDefinition>

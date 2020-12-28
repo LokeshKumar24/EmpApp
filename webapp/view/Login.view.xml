@@ -1,25 +1,26 @@
 <mvc:View controllerName="EA.EmployeeApp1.controller.Login" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:sf="sap.ui.layout.form">
-	<Shell id="shell">
+	<!-- <Shell id="shell"> -->
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-                     <tnt:ToolHeader>
+                     <!-- <tnt:ToolHeader>
 						<ToolbarSpacer/>
 						<Button icon="sap-icon://SAP-icons-TNT/User"></Button>
-					</tnt:ToolHeader>
+					</tnt:ToolHeader> -->
                     <VBox fitContainer="true" alignItems="Center" justifyContent="Center">
                     	
                     <sf:SimpleForm editable="true">
 								<VBox alignContent="Center" justifyContent="Center">
 									<HBox alignContent="Center" justifyContent="Center">
-										<Input id="idUsername" placeholder="Enter Your Employee" width="20rem" fieldWidth="30rem"></Input>
+										<Input  placeholder="Enter Your Employee" width="20rem" fieldWidth="30rem" value="{login>/id}"></Input>
 									</HBox>
 									<HBox alignContent="Center" justifyContent="Center">
-										<Input id="idPassword" placeholder="Enter Your Password" width="20rem"></Input>
+										<Input placeholder="Enter Your Password" width="20rem" value="{login>/password}"></Input>
 									</HBox>
                                     <HBox>
-                                    <Text text="Forgot Password ?" ></Text>
+                                    <Link text="Forgot Password ?" press="changePassword" ></Link>
+                                    <!-- <Text text="Forgot Password ?" ></Text> -->
                                     </HBox>
 									<HBox alignContent="Center" justifyContent="Center">
 										<Button text="Login" width="20rem" press="onLogin" type="Emphasized"></Button>
@@ -32,5 +33,5 @@
 				</Page>
 			</pages>
 		</App>
-	</Shell>
+	<!-- </Shell> -->
 </mvc:View>
