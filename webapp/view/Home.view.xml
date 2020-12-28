@@ -1,10 +1,11 @@
 <mvc:View controllerName="EA.EmployeeApp1.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:sf="sap.ui.layout.form">
 	
-		<App id="Home" >
+		<App >
 			<pages>
-				<Page  title="Home View">
+				<Page  title="Home View" showHeader="false">
 					
                    <content>
+                   <Text text="Home"></Text>
                    </content>
                    
 				</Page>

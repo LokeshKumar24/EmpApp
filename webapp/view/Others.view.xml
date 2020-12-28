@@ -1,6 +1,6 @@
 <mvc:View controllerName="EA.EmployeeApp1.controller.Others" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
-		<App id="Others">
+
+		<App >
 			<pages>
 				<Page id="page" title="{i18n>others}" showHeader="false">
 					<content>
@@ -10,5 +10,5 @@
 				</Page>
 			</pages>
 		</App>
-	</Shell>
+
 </mvc:View>
