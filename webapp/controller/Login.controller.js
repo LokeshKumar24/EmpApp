@@ -78,17 +78,18 @@ sap.ui.define([
 
                 var id = this.getView().byId("eid").getValue();
                 var password = this.getView().byId("epass").getValue();
+                 this.oRouter.navTo("SplitApp");
 
-                var oModel = this.getView().getModel("jsonmodel").getProperty("/LoginData");
-                for (var i=0; i<=oModel.length; i++){
-                    if(oModel[i].Eid === id && oModel[i].Password === password){
-                         this.oRouter.navTo("SplitApp");
-                    }else{
-                        // sap.m.MessageToast.show("Please Enter Login Credentials");
-                        alert("ERROR");
-                    }
+                // var oModel = this.getView().getModel("jsonmodel").getProperty("/LoginData");
+                // for (var i=0; i<=oModel.length; i++){
+                //     if(oModel[i].Eid === id && oModel[i].Password === password){
+                //          this.oRouter.navTo("SplitApp");
+                //     }else{
+                //         // sap.m.MessageToast.show("Please Enter Login Credentials");
+                //         alert("ERROR");
+                //     }
 
-                }
+                // }
 
                 
             },
