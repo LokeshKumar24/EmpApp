@@ -1,7 +1,5 @@
 sap.ui.define([
-        // "sap/ui/core/mvc/Controller",
          "EA/EmployeeApp1/controller/BaseController",
-        //  "EA/EmployeeApp1/controller/Base.controller",
         "sap/ui/model/json/JSONModel",
         "sap/base/Log"
 	],
@@ -14,15 +12,6 @@ sap.ui.define([
 		return BaseController.extend("EA.EmployeeApp1.controller.SplitApp", {
 			onInit: function () {
 
-            //     var oViews=["Home","Profile","Project","Others"];
-            //     var views=[];
-            //     oViews.forEach(element=>{
-            //     views.push({name:element})
-            //     });
-            //   var data={
-            //              views: views
-            //           }
-            //     this.getView().setModel(new JSONModel(data),"master")
             },
             request:null,
             onRequest:function(){
@@ -37,11 +26,6 @@ sap.ui.define([
             onClose:function(){
                 this.request.close();
             },
-            	onOrientationChange: function (oEvent) {
-			var bLandscapeOrientation = oEvent.getParameter("landscape"),
-				sMsg = "Orientation now is: " + (bLandscapeOrientation ? "Landscape" : "Portrait");
-			sap.m.MessageToast.show(sMsg, { duration: 5000 });
-		},
 
             	onListItemPress: function (oEvent) {
                   debugger
