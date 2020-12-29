@@ -14,22 +14,30 @@ sap.ui.define([
 			onInit: function () {
                 this.oRouter = new sap.ui.core.UIComponent.getRouterFor(this);
                 var that = this;
-                var OData;
+               
                 var oJSONModel = new JSONModel();
-                this.getView().setModel(oJSONModel, "jsonmodel");
+                this.getOwnerComponent().setModel(oJSONModel, "jsonmodel");
              
                  
                 
                 
-                // var sUrl = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZAPP_EMP_SRV/");
-                var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZAPP_EMP_SRV/");
-            var data=oModel.read("/LOGINSet", {
-                success:function(data1){
-                    debugger;
-                   // alert("success");
-                    OData= data.results;
-                    console.log(data.results); 
-                    that.getView().setModel(new JSONModel({LoginData: data.results}),"jsonmodel");
+             var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+
+             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+      
+            // var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZAPP_EMP_SRV/");
+            var data=oJModel.read("/LOGINSet", {
+                success:function(data){
+                    // debugger;
+                   
+                   
+                    // that.getView().setModel(new JSONModel({LoginData: data.results}),"jsonmodel");
+                    oJSONModel.setData({
+                        LData:data.results
+                    });
+
+                    that.getOwnerComponent().setModel(oJSONModel, "jsonmodel");
+             
                    
                     
                     // set the model
@@ -45,53 +53,66 @@ sap.ui.define([
                 
 
                
-            //    this.getView().setModel(new JSONModel(),"ch");
-            //     this.getView().setModel(new JSONModel(),"login");
+            
 
             },
 
 
-             masterData : function(OData){
-             debugger;
+             masterData : function(data){
+            //  debugger;
              var arr = [];
-             arr.push(data1.results);
+             arr.push(data.results);
             //  console.log(oData1);
              var oJSONModel = new JSONModel();
              
 
              oJSONModel.setData({
-					LoginData: OData
+					LData: OData
                 });
                 
                 this.getView().setModel(oJSONModel, "jsonmodel");
-                // var detail = this.getView().getModel("jsonmodel").getProperty("/data");
-                // console.log(detail);
-                // var idE3 = detail[0].Eid;
-                // console.log(idE3);
                
                
-            },
+            }, 
+            ID:null,
             onLogin:function(){
-                debugger;
+                 debugger;
                 // var id = this.getView().getModel("login").getProperty("/id");
                 // var Password = this.getView().getModel("login").getProperty("/password");
 
                 var id = this.getView().byId("eid").getValue();
                 var password = this.getView().byId("epass").getValue();
-                 this.oRouter.navTo("SplitApp");
 
-                // var oModel = this.getView().getModel("jsonmodel").getProperty("/LoginData");
-                // for (var i=0; i<=oModel.length; i++){
-                //     if(oModel[i].Eid === id && oModel[i].Password === password){
-                //          this.oRouter.navTo("SplitApp");
-                //     }else{
-                //         // sap.m.MessageToast.show("Please Enter Login Credentials");
-                //         alert("ERROR");
-                //     }
+                this.ID = id;
+                   
 
-                // }
+                //    var oViews=["Home","Profile","Project","Others"];
+                var oArr = [];
+                var LoginId={
+                    Eid:id
+                }
+                 
+                 oArr.push(LoginId);
+            
+                  var data={
+                        loginD: oArr
+                       }
+                 this.getOwnerComponent().setModel(new JSONModel(data),"loginModel");
+                 var oLModel = this.getOwnerComponent().getModel("loginModel").getProperty("/loginD/0/Eid");
+
+
+                 
+
+                var oModel = this.getOwnerComponent().getModel("jsonmodel").getProperty("/LData");
+                for (var i=0; i<oModel.length; i++){
+                    if(oModel[i].Eid === id && oModel[i].Password === password){
+                         this.oRouter.navTo("SplitApp");
+                    }
+
+                }
 
                 
+
             },
             changePass:null,
             changePassword:function(){

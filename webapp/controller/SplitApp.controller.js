@@ -42,7 +42,7 @@ sap.ui.define([
 		},
 
             	onListItemPress: function (oEvent) {
-                  //  debugger
+                  debugger
             var sToPageId = oEvent.getParameter("listItem").mProperties.title;
 
 			this.byId("SplitApp").toDetail(this.createId(sToPageId));

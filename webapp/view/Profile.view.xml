@@ -20,12 +20,12 @@
 		<headerTitle >
 			<ObjectPageDynamicHeaderTitle>
 				<expandedHeading>
-					<m:Title text="{EmpName}" wrapping="true" level="H1" textAlign="Center"/>
+					<m:Title text="{profileModel>Fullname}" wrapping="true" level="H1" textAlign="Center"/>
 				</expandedHeading>
 				<snappedHeading>
 					<m:FlexBox fitContainer="true" alignItems="Center">
-						<m:Avatar src="{Empfile}" class="sapUiTinyMarginEnd"/>
-						<m:Title text="{EmpName}" wrapping="true"/>
+						<m:Avatar src="{profileModel>Picture}"  id ="ImageBackend" class="sapUiTinyMarginEnd"/>
+						<m:Title  id="textId" text="{profileModel>Fullname}" wrapping="true"/>
 					</m:FlexBox>
 				</snappedHeading>
 				<actions>
@@ -39,13 +39,13 @@
 		</headerTitle>
 		<headerContent>
 			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-				<f:Avatar class="sapUiTinyMarginEnd" src="{Empfile}" displaySize="L"/>
+				<f:Avatar class="sapUiTinyMarginEnd" src="{profileModel>Picture}" displaySize="L"/>
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Link text="{EmpCon}"/>
-					<m:Link text="{Empmail}"/>
+					<m:Link text="{profileModel>Fullname}"/>
+					<m:Link text="{profileModel>Phoneno}"/>
 				</layout:VerticalLayout>
 				<layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Image src="" class="sapUiSmallMarginBegin"/>
+					<m:Image src="{profileModel>Picture}" class="sapUiSmallMarginBegin"/>
 				</layout:HorizontalLayout>
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd"></layout:VerticalLayout>
 			</m:FlexBox>
@@ -55,15 +55,15 @@
 				<subSections>
 					<ObjectPageSubSection title="About Me">
 						<blocks>
-							<form:SimpleForm layout="ColumnLayout" width="100%" labelSpanL="3" labelSpanM="3" labelSpanS="3" emptySpanL="0" emptySpanM="0"
+							<form:SimpleForm  id="SmForm1" layout="ColumnLayout" width="100%" labelSpanL="3" labelSpanM="3" labelSpanS="3" emptySpanL="0" emptySpanM="0"
 								emptySpanS="0" maxContainerCols="2">
 								<core:Title text=""/>
 								<m:Label text="Employee Id"/>
-								<m:Text text="{EmpId}"/>
+								<m:Text text="{profileModel>Eid}"/>
                                 <!-- <m:Input value="SW001"/> -->
                                 
 								<m:Label text="Employee Name"/>
-								<m:Text text="{EmpName}"/>
+								<m:Text text="{profileModel>Fullname}"/>
 								<m:Label text="Employee Email"/>
 								<m:Text text="{Empmail}"/>
 								<m:Label text="Employee No"/>
