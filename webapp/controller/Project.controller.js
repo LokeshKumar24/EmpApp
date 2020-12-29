@@ -11,7 +11,7 @@ sap.ui.define([
 
 		return BaseController.extend("EA.EmployeeApp1.controller.Project", {
 			onInit: function () {
-
+                this.getProject();
 			}
 		});
 	});

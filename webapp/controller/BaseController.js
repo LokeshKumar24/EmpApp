@@ -13,9 +13,11 @@ sap.ui.define([
             Eid:null,
             loginDetails:null,
             oRouter : null,
+            profile:null,
 			onInit: function () {
                 
             },
+            //login data and validations
             getLogin:function(){
                 var that = this;
               var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
@@ -42,6 +44,91 @@ sap.ui.define([
                         this.oRouter.navTo("SplitApp");
                     }
                 });
+
+            },
+            //home data
+            getHome:function(){
+                // debugger
+                var that = this;
+                var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+                
+                var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+                
+            var data=oJModel.read("/HOMESet", {
+                success:function(data){
+                    debugger;
+                    
+                     console.log(data.results)
+                                   
+                },
+                error:function(){
+                    alert("Login data is not received");
+                }
+            });
+
+            },
+
+            // project data
+            getProject:function(){
+                //  debugger
+                   var that = this;
+              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+
+             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+      
+            var data=oJModel.read("/PROJECTSet", {
+                success:function(data){
+                     debugger;
+                    
+                     console.log(data.results)
+                                   
+                },
+                error:function(){
+                    alert("Login data is not received");
+                }
+            });
+
+            },
+            //get others data
+            getOthers:function(){
+                //debugger
+                  var that = this;
+              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+
+             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+      
+            var data=oJModel.read("/REQUESTSet", {
+                success:function(data){
+                    // debugger;
+                    
+                     console.log(data.results)
+                                   
+                },
+                error:function(){
+                    alert("Login data is not received");
+                }
+            });
+
+            },
+            getProfile:function(id){
+                // debugger
+                  var that = this;
+                //  var id= this.Eid;
+              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+
+             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+      
+            var data=oJModel.read("/PROFILESet('"+ id +"')", {
+                success:function(data){
+                    //  debugger;
+                     console.log(data.results)
+                    that.getOwnerComponent().setModel(new JSONModel(data.results),"Profile");
+                                   
+                },
+                error:function(){
+                    alert("Login data is not received");
+                }
+            });
 
             },
 

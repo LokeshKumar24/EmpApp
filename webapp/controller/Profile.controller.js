@@ -11,9 +11,8 @@ sap.ui.define([
 
 		return BaseController.extend("EA.EmployeeApp1.controller.Profile", {
 			onInit: function () {
-                // debugger;
-        
-
+                 debugger;
+                this.getProfile(this.Eid)
                 // var oLModel = this.getOwnerComponent().getModel("loginModel").getProperty("/loginD/0/Eid");
                 var oLModel = "SW001";
                 // var oLModel = this.Eid;

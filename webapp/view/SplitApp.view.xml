@@ -1,14 +1,27 @@
-<mvc:View xmlns:tnt="sap.tnt" controllerName="EA.EmployeeApp1.controller.SplitApp"
- xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View xmlns:tnt="sap.tnt" controllerName="EA.EmployeeApp1.controller.SplitApp"    xmlns="sap.m"
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
 	<!-- <Shell id="shell"> -->
 		<App >
 			<pages>
 				<Page id="page" title="Main" showHeader="false">
-                    	<headerContent>
+                    	<!-- <headerContent>
 			<Button icon="sap-icon://action" tooltip="Share" />
-		</headerContent>
+		</headerContent> -->
 					<content>
-                   
+                   	<tnt:ToolHeader >
+						<Bar>
+							<contentLeft width="3rem">
+								<Image src="{empData>/logo/0/image}" alt="LOGO" height="3rem"/>
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{i18n>EmployeeApp}" titleStyle="H2"/>
+							</contentMiddle>
+							<contentRight>
+								<Button text="{i18n>Logout}" press="onLogout"></Button>
+							</contentRight>
+						</Bar>
+					</tnt:ToolHeader>
+
                     <SplitApp id="SplitApp" initialDetail="Home">
                      <masterPages >
                   <Page visible="true" showFooter="true">

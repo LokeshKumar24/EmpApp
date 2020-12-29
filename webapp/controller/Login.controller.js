@@ -20,14 +20,15 @@ sap.ui.define([
  
         
             onLogin:function(){
-                // debugger;
+                 debugger;
                 var id = this.getView().getModel("Login").getProperty("/id");
                 var password = this.getView().getModel("Login").getProperty("/password");
                 if(id&&password){
 
                     this.Eid = id;
                     this.checkLogin(id,password);
-                    	this.getView().byId("userId").setValueState("None");
+                   //  this.getProfile(id);
+                    this.getView().byId("userId").setValueState("None");
 				this.getView().byId("userPassword").setValueState("None");
                 } else{
                     this.getView().byId("userId").setValueState("Error");
