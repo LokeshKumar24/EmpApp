@@ -1,9 +1,14 @@
 sap.ui.define([
+<<<<<<< HEAD
          "EA/EmployeeApp1/controller/BaseController",
         // "sap/ui/core/mvc/Controller",
         "sap/ui/model/json/JSONModel"
         
          
+=======
+        // "sap/ui/core/mvc/Controller"
+         "EA/EmployeeApp1/controller/Base.controller"
+>>>>>>> a04e9a8e662bacb8b372348cbc1d12ee70c0a8dc
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
