@@ -12,15 +12,15 @@ sap.ui.define([
 		return Controller.extend("EA.EmployeeApp1.controller.SplitApp", {
 			onInit: function () {
 
-                var oViews=["Home","Profile","Project","Others"];
-                var views=[];
-                oViews.forEach(element=>{
-                views.push({name:element})
-                });
-              var data={
-                         views: views
-                      }
-                this.getView().setModel(new JSONModel(data),"master")
+            //     var oViews=["Home","Profile","Project","Others"];
+            //     var views=[];
+            //     oViews.forEach(element=>{
+            //     views.push({name:element})
+            //     });
+            //   var data={
+            //              views: views
+            //           }
+            //     this.getView().setModel(new JSONModel(data),"master")
             },
             request:null,
             onRequest:function(){

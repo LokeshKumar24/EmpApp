@@ -1,21 +1,18 @@
 	{
-        "EmployeeList":[
+        "views":[
 		{
-			"empId":"100",
-			"empName":"welcome"
-		},
-			{
-			"empId":102,
-			"empName":"Ram"
-		},
-			{
-			"empId":103,
-			"empName":"Raju"
-		},
-			{
-			"empId":104,
-			"empName":"Rajesh"
-		}
+            "name":"Home"
+        },
+        {
+            "name":"Profile"
+        },
+        {
+            "name":"Project"
+        },
+        {
+            "name":"Others"
+        }
+       
         ],
         	"logo":[
 			{

@@ -77,6 +77,10 @@
           "defaultCountMode": "Inline",
           "refreshAfterChange": false
         }
+      },
+      "master":{
+          "uri": "model/dummy.json",
+          "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

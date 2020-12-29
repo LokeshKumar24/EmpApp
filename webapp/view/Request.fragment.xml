@@ -1,4 +1,5 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:sf="sap.ui.layout.form" 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" 
+xmlns:sf="sap.ui.layout.form" 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable">
     <Dialog  title="ChangePassword" >
 <IconTabBar
@@ -7,16 +8,12 @@
 		class="sapUiResponsiveContentPadding">
 		<items>
 			<IconTabFilter text="Log" key="Log">
-					<!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="LineItemsSet" persistencyKey="SmartFilter_Explored">
-			<smartFilterBar:controlConfiguration>
-				
-			</smartFilterBar:controlConfiguration> -->
-		<!-- </smartFilterBar:SmartFilterBar> -->
-		<smartTable:SmartTable entitySet=""
+					 <Button text="close" icon="sap-icon://decline" press="onClose" type="Reject"></Button>
+		<!-- <smartTable:SmartTable entitySet=""
 			tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport"
 			useVariantManagement="false" useTablePersonalisation="true" header="Line Items"
 			showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true"
-			demandPopin="true" class="sapUiResponsiveContentPadding"/>
+			demandPopin="true" class="sapUiResponsiveContentPadding"/> -->
 			</IconTabFilter>
 			<IconTabFilter text="Leave Request" key="Leave Request">
 				<sf:SimpleForm editable="true">
@@ -37,6 +34,7 @@
 				
 				<Label></Label>
 				<Button text="Submit" type="Emphasized" press="onLeave"></Button>
+                 <Button text="close" icon="sap-icon://decline" press="onClose" type="Reject"></Button>
 			</sf:SimpleForm>
 			</IconTabFilter>
 			<IconTabFilter text="Assets Request" key="Assets Request">
