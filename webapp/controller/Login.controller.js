@@ -1,14 +1,15 @@
 sap.ui.define([
-        "sap/ui/core/mvc/Controller",
+        // "sap/ui/core/mvc/Controller",
+         "EA/EmployeeApp1/controller/BaseController",
         "sap/ui/model/json/JSONModel"
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-	function (Controller,JSONModel) {
+	function (BaseController,JSONModel) {
 		"use strict";
 
-		return Controller.extend("EA.EmployeeApp1.controller.Login", {
+		return BaseController.extend("EA.EmployeeApp1.controller.Login", {
             
             
 			onInit: function () {
@@ -74,7 +75,7 @@ sap.ui.define([
                
                
             }, 
-            ID:null,
+        
             onLogin:function(){
                  debugger;
                 // var id = this.getView().getModel("login").getProperty("/id");
@@ -83,7 +84,7 @@ sap.ui.define([
                 var id = this.getView().byId("eid").getValue();
                 var password = this.getView().byId("epass").getValue();
 
-                this.ID = id;
+                this.Eid = id;
                    
 
                 //    var oViews=["Home","Profile","Project","Others"];

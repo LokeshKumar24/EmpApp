@@ -1,5 +1,6 @@
 sap.ui.define([
-		"sap/ui/core/mvc/Controller"
+        
+        "sap/ui/core/mvc/Controller"
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -7,10 +8,13 @@ sap.ui.define([
 	function (Controller) {
 		"use strict";
 
-		return Controller.extend("EA.EmployeeApp1.controller.Base", {
+		return Controller.extend("EA.EmployeeApp1.controller.BaseController", {
 			onInit: function () {
                 
                  
-			}
+			},
+
+            
+            Eid:null
 		});
 	});

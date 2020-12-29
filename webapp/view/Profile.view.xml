@@ -64,14 +64,14 @@
                                 
 								<m:Label text="Employee Name"/>
 								<m:Text text="{profileModel>Fullname}"/>
-								<m:Label text="Employee Email"/>
-								<m:Text text="{Empmail}"/>
+								<m:Label text="Employee Qualification"/>
+								<m:Text text="{profileModel>Qualification}"/>
 								<m:Label text="Employee No"/>
-								<m:Text text="{EmpCon}"/>
+								<m:Text text="{profileModel>Phoneno}"/>
 								<m:Label text="Age"/>
-								<m:Text text="{EmpAge}"/>
-								<m:Label text="Adhar No"/>
-								<m:Text text="{EmpA}"/>
+								<m:Text text="{profileModel>Age}"/>
+								<m:Label text="Date Of Birth"/>
+								<m:Text text="{profileModel>Dob}"/>
 							</form:SimpleForm>
 						</blocks>
 					</ObjectPageSubSection>
@@ -84,20 +84,26 @@
 						<blocks>
 							<form:SimpleForm labelSpanL="4" labelSpanM="4" editable="false" labelSpanS="4" emptySpanL="0" emptySpanM="0" emptySpanS="0"
 								maxContainerCols="2" layout="ResponsiveGridLayout" width="100%">
-								<m:Label text="Home Adress"/>
-								<m:Text text="{EmpAdd}"/>
+								<m:Label text="Emp ID"/>
+								<m:Text text="{profileModel>Eid}"/>
 								<m:Text text=" "/>
-								<m:Label text="Mailing Adress"/>
-								<m:Text text="{Empmail}"/>
+								<m:Label text="FullName"/>
+								<m:Text text="{profileModel>Fullname}"/>
 								<m:Text text=" "/>
-								<m:Label text="Payment"/>
-								<m:Text text="{EmpSalary}"/>
+								<m:Label text="Company Name"/>
+								<m:Text text="{profileModel>Companyname}"/>
 								<m:Text text=""/>
-								<m:Label text="Job title"/>
-								<m:Text text="Developer"/>
+								<m:Label text="Job Designation"/>
+								<m:Text text="{profileModel>Designation}"/>
 								<m:Text text=" "/>
-								<m:Label text="Local Job Title"/>
-								<m:Label text="Ui Developer"/>
+								<m:Label text=""/>
+								<m:Label text="Payment"/>
+                                <m:Text text="{profileModel>Salary}"/>
+								<m:Label text=""/>
+								<m:Label text="Company Adress"/>
+                                <m:Text text="{profileModel>Complocation}"/>
+								<m:Label text="Project"/>
+								<m:Label text="{profileModel>Project}"/>
 							</form:SimpleForm>
 						</blocks>
 					</ObjectPageSubSection>

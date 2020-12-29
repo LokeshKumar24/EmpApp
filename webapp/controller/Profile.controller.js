@@ -1,18 +1,23 @@
 sap.ui.define([
-        "sap/ui/core/mvc/Controller",
-        "sap/ui/model/json/JSONModel",
+         "EA/EmployeeApp1/controller/BaseController",
+        // "sap/ui/core/mvc/Controller",
+        "sap/ui/model/json/JSONModel"
+        
+         
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-	function (Controller,JSONModel) {
+	function (BaseController,JSONModel) {
 		"use strict";
 
-		return Controller.extend("EA.EmployeeApp1.controller.Profile", {
+		return BaseController.extend("EA.EmployeeApp1.controller.Profile", {
 			onInit: function () {
                 // debugger;
                 // var oLModel = this.getOwnerComponent().getModel("loginModel").getProperty("/loginD/0/Eid");
                 var oLModel = "SW001";
+                // var oLModel = this.Eid;
+            
                 var that = this;
                
                 var oJSONModel = new JSONModel();
@@ -22,7 +27,7 @@ sap.ui.define([
              var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
       
             
-            var data=oJModel.read("/PROFILESet('"+ oLModel +"')", {
+            var data=oJModel.read('/PROFILESet('+this.Eid+')', {
                 success:function(data){
                     debugger;
                     // set the model

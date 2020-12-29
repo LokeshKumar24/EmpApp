@@ -1,15 +1,16 @@
 sap.ui.define([
-        "sap/ui/core/mvc/Controller",
+        // "sap/ui/core/mvc/Controller",
+         "EA/EmployeeApp1/controller/BaseController",
         "sap/ui/model/json/JSONModel",
-        	"sap/base/Log"
+        "sap/base/Log"
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-	function (Controller,JSONModel,Log) {
+	function (BaseController,JSONModel,Log) {
 		"use strict";
 
-		return Controller.extend("EA.EmployeeApp1.controller.SplitApp", {
+		return BaseController.extend("EA.EmployeeApp1.controller.SplitApp", {
 			onInit: function () {
 
             //     var oViews=["Home","Profile","Project","Others"];
