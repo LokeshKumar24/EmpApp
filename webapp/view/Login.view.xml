@@ -13,10 +13,10 @@
                     <sf:SimpleForm editable="true">
 								<VBox alignContent="Center" justifyContent="Center">
 									<HBox alignContent="Center" justifyContent="Center">
-										<Input  placeholder="Enter Your Employee" width="20rem" fieldWidth="30rem" value="{login>/id}"></Input>
+										<Input  placeholder="Enter Your Employee" width="20rem" fieldWidth="30rem" value="" id="eid"></Input>
 									</HBox>
 									<HBox alignContent="Center" justifyContent="Center">
-										<Input placeholder="Enter Your Password" width="20rem" value="{login>/password}"></Input>
+										<Input placeholder="Enter Your Password" width="20rem" value="" id="epass"></Input>
 									</HBox>
                                     <HBox>
                                     <Link text="Forgot Password ?" press="changePassword" ></Link>
