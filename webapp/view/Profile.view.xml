@@ -102,8 +102,9 @@
 								<m:Label text=""/>
 								<m:Label text="Company Adress"/>
                                 <m:Text text="{profileModel>Complocation}"/>
+								<m:Label text=""/>
 								<m:Label text="Project"/>
-								<m:Label text="{profileModel>Project}"/>
+                                <m:Text text="{profileModel>Project}"/>
 							</form:SimpleForm>
 						</blocks>
 					</ObjectPageSubSection>

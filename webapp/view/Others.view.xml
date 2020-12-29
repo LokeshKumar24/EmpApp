@@ -1,10 +1,37 @@
-<mvc:View controllerName="EA.EmployeeApp1.controller.Others" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="EA.EmployeeApp1.controller.Others" xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" displayBlock="true" xmlns="sap.m">
 
 		<App >
 			<pages>
 				<Page id="page" title="{i18n>others}" showHeader="false">
 					<content>
-                    <Text text="others"></Text>
+                   
+                    <IconTabBar
+		id="idIconTabBarNoIcons"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter  icon="sap-icon://upload" text="Time Sheet Upload" key="Time Sheet Upload">
+				
+                <Button text="Time Sheet Upload" press="TimeSheetUpload" ></Button>
+			</IconTabFilter>
+			<IconTabFilter text="Files" icon="sap-icon://attachment" key="Files">
+				
+                <Button text="Upload Files" press="FlesUpload" ></Button>
+			</IconTabFilter>
+
+            <IconTabFilter text="Files Data" icon="sap-icon://table-view" key="Files">
+				
+                	
+		<smartTable:SmartTable entitySet="LineItemsSet" 
+			tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport"
+			useVariantManagement="false" useTablePersonalisation="true" header="Line Items"
+			showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true"
+			demandPopin="true" class="sapUiResponsiveContentPadding"/>
+			</IconTabFilter>
+			
+		</items>
+	</IconTabBar>
                   
                     </content>
 				</Page>

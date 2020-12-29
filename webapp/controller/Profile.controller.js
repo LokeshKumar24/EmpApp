@@ -1,14 +1,11 @@
 sap.ui.define([
-<<<<<<< HEAD
          "EA/EmployeeApp1/controller/BaseController",
         // "sap/ui/core/mvc/Controller",
         "sap/ui/model/json/JSONModel"
         
          
-=======
         // "sap/ui/core/mvc/Controller"
-         "EA/EmployeeApp1/controller/Base.controller"
->>>>>>> a04e9a8e662bacb8b372348cbc1d12ee70c0a8dc
+        //  "EA/EmployeeApp1/controller/Base.controller"
 	],
 	/**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -32,7 +29,7 @@ sap.ui.define([
              var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
       
             
-            var data=oJModel.read('/PROFILESet('+this.Eid+')', {
+            var data=oJModel.read("/PROFILESet('"+ oLModel +"')", {
                 success:function(data){
                     debugger;
                     // set the model
@@ -47,6 +44,7 @@ sap.ui.define([
                    that.getOwnerComponent().setModel(oJSONModel, "profileModel");
                    var detail = that.getOwnerComponent().getModel("profileModel").getProperty("/Pdata");
                     that.getView().byId("ObjectPageLayout").bindElement("profileModel>/Pdata");
+               
                    
             },
 
@@ -85,11 +83,11 @@ sap.ui.define([
             //    this.getView().byId("ObjectPageLayout").refresh();
             
 
-             var oImage = this .getView().byId("ImageBackend");
-            oImage.setSrc("profileModel>/pdata/0/Picture");
+            //  var oImage = this .getView().byId("ImageBackend");
+            // oImage.setSrc("profileModel>/pdata/0/Picture");
 
-            var Name = this.getView().byId("textId");
-            Name.setText("profileModel>/pdata/0/Fullname");
+            // var Name = this.getView().byId("textId");
+            // Name.setText("profileModel>/pdata/0/Fullname");
                
                
             },

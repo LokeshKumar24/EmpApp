@@ -12,6 +12,20 @@ sap.ui.define([
 		return BaseController.extend("EA.EmployeeApp1.controller.Others", {
 			onInit: function () {
 
-			}
+            },
+            
+             TSheet:null,
+             TimeSheetUpload:function(){
+               debugger;
+                if(!this.TSheet){
+                    this.TSheet = new sap.ui.xmlfragment("EA.EmployeeApp1.view.TimeSheet",this);
+                    this.getView().addDependent(this.TSheet);
+                }
+                this.changePass.open();
+
+            },
+            onClose:function(){
+                this.TSheet.close();
+            },
 		});
 	});
