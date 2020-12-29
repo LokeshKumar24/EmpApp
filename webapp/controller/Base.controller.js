@@ -11,6 +11,7 @@ sap.ui.define([
 			onInit: function () {
                 
 
-			}
+            },
+            Eid:null
 		});
 	});

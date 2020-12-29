@@ -1,5 +1,6 @@
 sap.ui.define([
-        "sap/ui/core/mvc/Controller",
+        // "sap/ui/core/mvc/Controller",
+         "EA/EmployeeApp1/controller/Base",
         "sap/ui/model/json/JSONModel",
         	"sap/base/Log"
 	],
