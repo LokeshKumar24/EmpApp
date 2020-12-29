@@ -3,8 +3,10 @@
 	<!-- <Shell id="shell"> -->
 		<App >
 			<pages>
-				<Page id="page" title="{i18n>title}" showHeader="false">
-                
+				<Page id="page" title="Main" showHeader="false">
+                    	<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" />
+		</headerContent>
 					<content>
                    
                     <SplitApp id="SplitApp" initialDetail="Home">
