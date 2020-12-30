@@ -24,7 +24,7 @@
 				</expandedHeading>
 				<snappedHeading>
 					<m:FlexBox fitContainer="true" alignItems="Center">
-						<m:Avatar src="{profileModel>Picture}"  id ="ImageBackend" class="sapUiTinyMarginEnd"/>
+						<!-- <m:Avatar src="{profileModel>Picture}"  id ="ImageBackend" class="sapUiTinyMarginEnd"/> -->
 						<m:Title  id="textId" text="{profileModel>Fullname}" wrapping="true"/>
 					</m:FlexBox>
 				</snappedHeading>
@@ -45,7 +45,7 @@
 					<m:Link text="{profileModel>Phoneno}"/>
 				</layout:VerticalLayout>
 				<layout:HorizontalLayout class="sapUiSmallMarginBeginEnd">
-					<m:Image src="{profileModel>Picture}" class="sapUiSmallMarginBegin"/>
+					<!-- <m:Image src="{profileModel>Picture}" class="sapUiSmallMarginBegin"/> -->
 				</layout:HorizontalLayout>
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd"></layout:VerticalLayout>
 			</m:FlexBox>

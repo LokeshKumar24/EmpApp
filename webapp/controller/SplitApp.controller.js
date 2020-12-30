@@ -38,15 +38,15 @@ sap.ui.define([
             },
 
             	onListItemPress: function (oEvent) {
-                  debugger
+                //  debugger
             var sToPageId = oEvent.getParameter("listItem").mProperties.title;
 
 
 			this.byId("SplitApp").toDetail(this.createId(sToPageId));
         },
          onLogout:function(){
-                	// var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            this.oRouter.navTo("RouteLogin");
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                        oRouter.navTo("RouteLogin");
            
             }
 

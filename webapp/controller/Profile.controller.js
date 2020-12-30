@@ -12,71 +12,62 @@ sap.ui.define([
 		return BaseController.extend("EA.EmployeeApp1.controller.Profile", {
 			onInit: function () {
                 // debugger;
-
+                 this.getProfile();
                   var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-
-			oRouter.attachRoutePatternMatched(this.getProfileId, this);
+                oRouter.attachRoutePatternMatched(this.getProfileId, this);
+                
 
 
             },
-            path:null,
+            Path:null,
             getProfileId:function(oEvent){
 
                 var id = oEvent.getParameter("arguments").ID;
-                this.path=id;
-                if(this.getOwnerComponent().getModel("profileModel")){
-                    this.addProfileData(id)
+                console.log(id)
+                this.Path=id;
+            },
+             getProfile:function(){
+                // debugger
+                  var that = this;
+                //  var id= this.Eid;
+              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+
+             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+      
+            var data=oJModel.read("/PROFILESet", {
+                success:function(data){
+                    //  debugger;
+                     console.log(data.results)
+                    that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
+                      that.addProfileData()             
+                },
+                error:function(){
+                    alert("Profile data is not received");
                 }
+            });
+
             },
 
-        addProfileData:function(id){
-            debugger
+
+        addProfileData:function(){
+         //   debugger
+            var id=this.Path;
             var path=null
                   var detail = this.getOwnerComponent().getModel("profileModel").getProperty("/profile");
                   console.log(detail)
                   detail.map((element,index)=>{
                       if(element.Eid===id){
+                         // debugger
                         path = index;
-                      }
+                    }
+                    detail[index].Picture = element.Picture.toLowerCase()
                   })
-                    this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile"+path);
+                  this.getOwnerComponent().setModel(new JSONModel({profile:detail}),"profileModel")
+                    this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile/"+path);
 
             },
 
-            
-
-            detailData:function(data){
-                debugger;
-                var arr = [];
-             arr.push(data);
-             var oJSONModel = new JSONModel();
-             
-
-             oJSONModel.setData({
-					Pdata: arr
-                });
-                
-                // this.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                // var detail = this.getView().getModel("profileModel").getProperty("/pdata");
-
-                
-               // console.log(detail);
-                //  var idE = detail[0].Fullname;
-                
-            //    this.getView().bindElement("jsonmodel2>/data2/0");
-            //    this.getView().getModel("jsonmodel2").refresh('true');
-            //    this.getView().byId("ObjectPageLayout").refresh();
-            
-
-            //  var oImage = this .getView().byId("ImageBackend");
-            // oImage.setSrc("profileModel>/pdata/0/Picture");
-
-            // var Name = this.getView().byId("textId");
-            // Name.setText("profileModel>/pdata/0/Fullname");
-               
-               
-            },
-     
+       
              
 		});
 	});

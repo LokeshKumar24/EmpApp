@@ -110,27 +110,27 @@ sap.ui.define([
             });
 
             },
-            getProfile:function(){
-                // debugger
-                  var that = this;
-                //  var id= this.Eid;
-              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+            // getProfile:function(){
+            //     // debugger
+            //       var that = this;
+            //     //  var id= this.Eid;
+            //   var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
 
-             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+            //  var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
       
-            var data=oJModel.read("/PROFILESet", {
-                success:function(data){
-                    //  debugger;
-                     console.log(data.results)
-                    that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
-                                   
-                },
-                error:function(){
-                    alert("Profile data is not received");
-                }
-            });
+            // var data=oJModel.read("/PROFILESet", {
+            //     success:function(data){
+            //         //  debugger;
+            //          console.log(data.results)
+            //         that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
+            //           that.addProfileData()             
+            //     },
+            //     error:function(){
+            //         alert("Profile data is not received");
+            //     }
+            // });
 
-            },
+            // },
 
             loginRouter:function(){
                   
