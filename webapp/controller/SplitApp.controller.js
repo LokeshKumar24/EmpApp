@@ -13,14 +13,16 @@ sap.ui.define([
 			onInit: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-			oRouter.attachRoutePatternMatched(this.onClick, this);
-
-            },
-           
-            onClick: function (oEvent) {
-// debugger
-        var path = oEvent.getParameter("arguments").ID;
-        this.Id=path
+            oRouter.attachRoutePatternMatched(this.getId, this);
+            //  this.getProfile();
+            
+        },
+        
+        getId: function (oEvent) {
+            // debugger
+            var path = oEvent.getParameter("arguments").ID;
+            this.Id=path
+            this.addProfileData();
              console.log(path)
 		},
             request:null,
@@ -41,6 +43,10 @@ sap.ui.define([
                 //  debugger
             var sToPageId = oEvent.getParameter("listItem").mProperties.title;
 
+            if(sToPageId==="Profile"){
+                this.addProfileData();
+            }
+
 
 			this.byId("SplitApp").toDetail(this.createId(sToPageId));
         },
@@ -48,6 +54,36 @@ sap.ui.define([
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                         oRouter.navTo("RouteLogin");
            
+            },
+
+            //profile changes
+             Path:null,
+            getProfileId:function(oEvent){
+
+                var id = oEvent.getParameter("arguments").ID;
+                console.log(id)
+                this.Path=id;
+            },
+           
+
+
+        addProfileData:function(){
+         //   debugger
+         if(this.getOwnerComponent().getModel("profileModel")){
+            var id=this.Id;
+            var path=null
+                  var detail = this.getOwnerComponent().getModel("profileModel").getProperty("/profile");
+                  console.log(detail)
+                  detail.map((element,index)=>{
+                      if(element.Eid===id){
+                         // debugger
+                        path = index;
+                    }
+                    detail[index].Picture = element.Picture.toLowerCase()
+                  })
+                  this.getOwnerComponent().setModel(new JSONModel({profile:detail}),"profileModel")
+                    this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile/"+path);
+                }
             }
 
             

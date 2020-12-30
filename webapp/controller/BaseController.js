@@ -110,123 +110,27 @@ sap.ui.define([
             });
 
             },
-            // getProfile:function(){
-            //     // debugger
-            //       var that = this;
-            //     //  var id= this.Eid;
-            //   var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
-
-            //  var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
-      
-            // var data=oJModel.read("/PROFILESet", {
-            //     success:function(data){
-            //         //  debugger;
-            //          console.log(data.results)
-            //         that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
-            //           that.addProfileData()             
-            //     },
-            //     error:function(){
-            //         alert("Profile data is not received");
-            //     }
-            // });
-
-            // },
-
-            loginRouter:function(){
-                  
-                var that = this;
-               
-                var oJSONModel = new JSONModel();
-                this.getOwnerComponent().setModel(oJSONModel, "jsonmodel");
-             
-                 
-                
-                
-            
-            },
-            
-             masterData : function(data){
-              debugger;
-             var arr = [];
-             arr.push(data.results);
-            //  console.log(oData1);
-             var oJSONModel = new JSONModel();
-             
-
-             oJSONModel.setData({
-					LData: OData
-                });
-                
-                this.getView().setModel(oJSONModel, "jsonmodel");
-               
-               
-            },
-
-        getProfileData:function(){
-              var that = this;
-               
-                var oJSONModel = new JSONModel();
-                 this.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                 var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+            //profile data
+              getProfile:function(){
+                // debugger
+                  var that = this;
+                //  var id= this.Eid;
+              var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
 
              var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
       
-            
-            var data=oJModel.read('/PROFILESet('+this.Eid+')', {
+            var data=oJModel.read("/PROFILESet", {
                 success:function(data){
-                    debugger;
-                    // set the model
-                    //  that.detailData(data);
-                     console.log(data); 
-                     
-
-                      oJSONModel.setData({
-                        Pdata:data
-                    });
-
-                   that.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                   var detail = that.getOwnerComponent().getModel("profileModel").getProperty("/Pdata");
-                    that.getView().byId("ObjectPageLayout").bindElement("profileModel>/Pdata");
-                   
-            },
-
-
+                    //  debugger;
+                     console.log(data.results)
+                    that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
+                    //   that.addProfileData()             
+                },
                 error:function(){
-                    alert("error");
+                    alert("Profile data is not received");
                 }
             });
-        },
 
- detailData:function(data){
-                debugger;
-                var arr = [];
-             arr.push(data);
-             var oJSONModel = new JSONModel();
-             
-
-             oJSONModel.setData({
-					Pdata: arr
-                });
-                
-                this.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                var detail = this.getView().getModel("profileModel").getProperty("/pdata");
-
-                
-                console.log(detail);
-                //  var idE = detail[0].Fullname;
-                
-            //    this.getView().bindElement("jsonmodel2>/data2/0");
-            //    this.getView().getModel("jsonmodel2").refresh('true');
-            //    this.getView().byId("ObjectPageLayout").refresh();
-            
-
-             var oImage = this .getView().byId("ImageBackend");
-            oImage.setSrc("profileModel>/pdata/0/Picture");
-
-            var Name = this.getView().byId("textId");
-            Name.setText("profileModel>/pdata/0/Fullname");
-               
-
-        }
+            },
 		});
 	});

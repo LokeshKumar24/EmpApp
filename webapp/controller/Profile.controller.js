@@ -15,7 +15,7 @@ sap.ui.define([
                  this.getProfile();
                   var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.attachRoutePatternMatched(this.getProfileId, this);
-                
+               // this.addProfileData();
 
 
             },
@@ -51,6 +51,7 @@ sap.ui.define([
 
         addProfileData:function(){
          //   debugger
+         if(this.getOwnerComponent().getModel("profileModel")){
             var id=this.Path;
             var path=null
                   var detail = this.getOwnerComponent().getModel("profileModel").getProperty("/profile");
@@ -64,7 +65,7 @@ sap.ui.define([
                   })
                   this.getOwnerComponent().setModel(new JSONModel({profile:detail}),"profileModel")
                     this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile/"+path);
-
+                }
             },
 
        
