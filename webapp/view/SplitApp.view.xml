@@ -19,7 +19,7 @@
 								<Title text="{i18n>EmployeeApp}" titleStyle="H2"/>
 							</contentMiddle>
 							<contentRight>
-								<Button text="{i18n>Logout}" press="onLogout"></Button>
+								<Button text="{i18n>Logout}"  icon="sap-icon://log" press="onLogout"></Button>
 							</contentRight>
 						</Bar>
 					</tnt:ToolHeader>
@@ -68,15 +68,19 @@
 				</uxap:expandedHeading>
 				<uxap:snappedHeading>
 					<FlexBox fitContainer="true" alignItems="Center">
+                        <f:Avatar class="sapUiTinyMarginEnd" src="{profileModel>Picture}" displaySize="L"/>
 						<!-- <m:Avatar src="{profileModel>Picture}"  id ="ImageBackend" class="sapUiTinyMarginEnd"/> -->
 						<Title  id="textId" text="{profileModel>Fullname}" wrapping="true"/>
 					</FlexBox>
 				</uxap:snappedHeading>
 				<uxap:actions>
 				
-					<Button icon="sap-icon://edit" text="Edit" press="onOpenEdit" tooltip="Edit Details" type="Emphasized"/>
-					<!-- <Button text="Toggle Footer" icon="sap-icon://pull-down" press="toggleFooter"/> -->
-					<!-- <m:Button icon="sap-icon://log" text="Logout" tooltip="Logout" press="onNext" type="Emphasized"/> -->
+					
+
+
+                    <Button id="edit" text="Edit" enabled="true"  press="onOpenEdit"  />
+					<Button id="save" text="Save" type="Emphasized" visible="false" press="handleSavePress" />
+					<Button id="cancel" text="Cancel" visible="false" press="handleCancelPress" />
 				</uxap:actions>
 			</uxap:ObjectPageDynamicHeaderTitle>
 		</uxap:headerTitle>
@@ -115,8 +119,76 @@
 								<Text text="{profileModel>Age}"/>
 								<Label text="Date Of Birth"/>
 								<Text text="{profileModel>Dob}"/>
+                               
+							</form:SimpleForm>
+
+                            <VBox class="sapUiSmallMargin">
+		<form:SimpleForm id ="SimpleFormChange354"
+			editable="true"
+            visible="false"
+			layout="ResponsiveGridLayout"
+			title="Edit Details"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<form:content>
+				
+                <Label text="Employee Id"/>
+				<Input id="idInput" value="{profileModel>Eid}" editable="false" />
+                <Label text="Name" />
+				<Input id="nameInput" value="{profileModel>Fullname}" />
+               
+                <Label text="Employee No"/>
+				<Input id="noInput"  value="{profileModel>Phoneno}"/>
+				<Label text="Age"/>
+				<Input  id="ageInput" value="{profileModel>Age}"/>
+                <Label text="Adress"/>
+				<Input   id="addInput" value="{profileModel>Address}"/>
+                <Label text="City"/>
+				<Input  id="cityInput" value="{profileModel>City}"/>
+				
+
+				
+				
+				
+				
+			</form:content>
+		</form:SimpleForm>
+	</VBox>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+
+                    <uxap:ObjectPageSubSection id="personalSectionSS2" title="Adress Details" titleUppercase="false">
+						<uxap:blocks>
+							<form:SimpleForm  id="SmForm6" layout="ColumnLayout" width="100%" labelSpanL="3" labelSpanM="3" labelSpanS="3" emptySpanL="0" emptySpanM="0"
+								emptySpanS="0" maxContainerCols="2">
+								<core:Title text=""/>
+								<Label text="Employee Id"/>
+								<Text text="{profileModel>Eid}"/>
+                                <!-- <m:Input value="SW001"/> -->
+                                
+								<Label text="Employee Name"/>
+								<Text text="{profileModel>Fullname}"/>
+								
+                                <Label text="Adress"/>
+				<Text text="{profileModel>Address}"/>
+                <Label text="City"/>
+				<Text text="{profileModel>City}"/>
+                <Label text="PostalCode"/>
+				<Text text="{profileModel>Postalcode}"/>
 							</form:SimpleForm>
 						</uxap:blocks>
+						
 					</uxap:ObjectPageSubSection>
 					
 				</uxap:subSections>
