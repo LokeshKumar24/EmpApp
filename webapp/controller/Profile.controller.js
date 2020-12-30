@@ -11,47 +11,35 @@ sap.ui.define([
 
 		return BaseController.extend("EA.EmployeeApp1.controller.Profile", {
 			onInit: function () {
-                 debugger;
-                this.getProfile(this.Eid)
-                // var oLModel = this.getOwnerComponent().getModel("loginModel").getProperty("/loginD/0/Eid");
-                var oLModel = "SW001";
-                // var oLModel = this.Eid;
-            
-                var that = this;
-               
-                var oJSONModel = new JSONModel();
-                 this.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                 var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+                // debugger;
 
-             var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
-      
-            
-            var data=oJModel.read("/PROFILESet('"+ oLModel +"')", {
-                success:function(data){
-                    debugger;
-                    // set the model
-                    //  that.detailData(data);
-                     console.log(data); 
-                     
+                  var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-                      oJSONModel.setData({
-                        Pdata:data
-                    });
+			oRouter.attachRoutePatternMatched(this.getProfileId, this);
 
-                   that.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                   var detail = that.getOwnerComponent().getModel("profileModel").getProperty("/Pdata");
-                    that.getView().byId("ObjectPageLayout").bindElement("profileModel>/Pdata");
-               
-                   
+
+            },
+            path:null,
+            getProfileId:function(oEvent){
+
+                var id = oEvent.getParameter("arguments").ID;
+                this.path=id;
+                if(this.getOwnerComponent().getModel("profileModel")){
+                    this.addProfileData(id)
+                }
             },
 
-
-                error:function(){
-                    alert("error");
-                }
-            });
-
-
+        addProfileData:function(id){
+            debugger
+            var path=null
+                  var detail = this.getOwnerComponent().getModel("profileModel").getProperty("/profile");
+                  console.log(detail)
+                  detail.map((element,index)=>{
+                      if(element.Eid===id){
+                        path = index;
+                      }
+                  })
+                    this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile"+path);
 
             },
 
@@ -68,11 +56,11 @@ sap.ui.define([
 					Pdata: arr
                 });
                 
-                this.getOwnerComponent().setModel(oJSONModel, "profileModel");
-                var detail = this.getView().getModel("profileModel").getProperty("/pdata");
+                // this.getOwnerComponent().setModel(oJSONModel, "profileModel");
+                // var detail = this.getView().getModel("profileModel").getProperty("/pdata");
 
                 
-                console.log(detail);
+               // console.log(detail);
                 //  var idE = detail[0].Fullname;
                 
             //    this.getView().bindElement("jsonmodel2>/data2/0");

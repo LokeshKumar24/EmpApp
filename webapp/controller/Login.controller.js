@@ -15,12 +15,16 @@ sap.ui.define([
 			onInit: function () {
                 this.getView().setModel(new JSONModel(), "Login");
                  this.oRouter =  sap.ui.core.UIComponent.getRouterFor(this);
+                 this.getProfile();
                  this.getLogin();
+                    this.getOthers();
+                      this.getProject();
+                        this.getHome();
             },
  
         
             onLogin:function(){
-                 debugger;
+                debugger;
                 var id = this.getView().getModel("Login").getProperty("/id");
                 var password = this.getView().getModel("Login").getProperty("/password");
                 if(id&&password){

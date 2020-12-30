@@ -9,7 +9,7 @@ sap.ui.define([
 
 		return BaseController.extend("EA.EmployeeApp1.controller.Others", {
 			onInit: function () {
-                this.getOthers();
+               
             },
             
              TSheet:null,

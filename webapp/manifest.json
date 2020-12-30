@@ -117,14 +117,14 @@
         },
         { 
            "name": "SplitApp",
-          "pattern": "SplitApp",
+          "pattern": "SplitApp/{ID}",
           "target": [
             "SplitApp"
           ]
         },
         { 
            "name": "Profile",
-          "pattern": "Profile",
+          "pattern": "Profile/{ID}",
           "target": [
             "Profile"
           ]

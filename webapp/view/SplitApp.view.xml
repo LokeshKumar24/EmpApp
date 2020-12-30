@@ -50,6 +50,7 @@
                      <detailPages>
 
                      <Page id="Home">
+                     
                      <mvc:XMLView viewName="EA.EmployeeApp1.view.Home"></mvc:XMLView>
                      </Page>
                      <Page id="Profile" >

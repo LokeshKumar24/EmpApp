@@ -11,8 +11,18 @@ sap.ui.define([
 
 		return BaseController.extend("EA.EmployeeApp1.controller.SplitApp", {
 			onInit: function () {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
+			oRouter.attachRoutePatternMatched(this.onClick, this);
 
             },
+           
+            onClick: function (oEvent) {
+// debugger
+        var path = oEvent.getParameter("arguments").ID;
+        this.Id=path
+             console.log(path)
+		},
             request:null,
             onRequest:function(){
                 debugger
@@ -30,6 +40,7 @@ sap.ui.define([
             	onListItemPress: function (oEvent) {
                   debugger
             var sToPageId = oEvent.getParameter("listItem").mProperties.title;
+
 
 			this.byId("SplitApp").toDetail(this.createId(sToPageId));
         },

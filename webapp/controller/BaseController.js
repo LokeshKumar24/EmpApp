@@ -38,10 +38,10 @@ sap.ui.define([
 
             },
             checkLogin:function(id,password){
-                debugger
+               // debugger
                 this.loginDetails.forEach(element => {
                     if(element.Eid === id && element.Password === password){
-                        this.oRouter.navTo("SplitApp");
+                        this.oRouter.navTo("SplitApp",{ID:id});
                     }
                 });
 
@@ -56,13 +56,13 @@ sap.ui.define([
                 
             var data=oJModel.read("/HOMESet", {
                 success:function(data){
-                    debugger;
+                   // debugger;
                     
                      console.log(data.results)
                                    
                 },
                 error:function(){
-                    alert("Login data is not received");
+                    alert("Home data is not received");
                 }
             });
 
@@ -78,13 +78,13 @@ sap.ui.define([
       
             var data=oJModel.read("/PROJECTSet", {
                 success:function(data){
-                     debugger;
+                   //  debugger;
                     
                      console.log(data.results)
                                    
                 },
                 error:function(){
-                    alert("Login data is not received");
+                    alert("Project data is not received");
                 }
             });
 
@@ -105,12 +105,12 @@ sap.ui.define([
                                    
                 },
                 error:function(){
-                    alert("Login data is not received");
+                    alert("Request data is not received");
                 }
             });
 
             },
-            getProfile:function(id){
+            getProfile:function(){
                 // debugger
                   var that = this;
                 //  var id= this.Eid;
@@ -118,15 +118,15 @@ sap.ui.define([
 
              var oJModel =  new sap.ui.model.odata.ODataModel(serviceurl);
       
-            var data=oJModel.read("/PROFILESet('"+ id +"')", {
+            var data=oJModel.read("/PROFILESet", {
                 success:function(data){
                     //  debugger;
                      console.log(data.results)
-                    that.getOwnerComponent().setModel(new JSONModel(data.results),"Profile");
+                    that.getOwnerComponent().setModel(new JSONModel({profile:data.results}),"profileModel");
                                    
                 },
                 error:function(){
-                    alert("Login data is not received");
+                    alert("Profile data is not received");
                 }
             });
 
