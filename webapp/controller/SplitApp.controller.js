@@ -14,17 +14,17 @@ sap.ui.define([
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
             oRouter.attachRoutePatternMatched(this.getId, this);
-            //  this.getProfile();
             
         },
-        
+        // to get the profile id
         getId: function (oEvent) {
             // debugger
             var path = oEvent.getParameter("arguments").ID;
             this.Id=path
             this.addProfileData();
              console.log(path)
-		},
+        },
+        // leave and asset request fragment
             request:null,
             onRequest:function(){
                 debugger
@@ -35,6 +35,7 @@ sap.ui.define([
                 this.request.open();
 
             },
+            // close the leave request fragment
             onClose:function(){
                 this.request.close();
             },
@@ -43,37 +44,26 @@ sap.ui.define([
                 //  debugger
             var sToPageId = oEvent.getParameter("listItem").mProperties.title;
 
-            if(sToPageId==="Profile"){
-                this.addProfileData();
-            }
-
-
 			this.byId("SplitApp").toDetail(this.createId(sToPageId));
         },
+
+        //logout
          onLogout:function(){
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                         oRouter.navTo("RouteLogin");
            
             },
 
+
             //profile changes
-             Path:null,
-            getProfileId:function(oEvent){
-
-                var id = oEvent.getParameter("arguments").ID;
-                console.log(id)
-                this.Path=id;
-            },
-           
-
-
+            
         addProfileData:function(){
          //   debugger
          if(this.getOwnerComponent().getModel("profileModel")){
             var id=this.Id;
             var path=null
                   var detail = this.getOwnerComponent().getModel("profileModel").getProperty("/profile");
-                  console.log(detail)
+                 // console.log(detail)
                   detail.map((element,index)=>{
                       if(element.Eid===id){
                          // debugger
