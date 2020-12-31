@@ -14,6 +14,9 @@ sap.ui.define([
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
             oRouter.attachRoutePatternMatched(this.getId, this);
+            //  this.getProfile();
+
+            
             
         },
         // to get the profile id
@@ -74,7 +77,89 @@ sap.ui.define([
                   this.getOwnerComponent().setModel(new JSONModel({profile:detail}),"profileModel")
                     this.getView().byId("ObjectPageLayout").bindElement("profileModel>/profile/"+path);
                 }
-            }
+            },
+
+            onOpenEdit:function(){
+                debugger;
+                var sForm = this.getView().byId("SmForm1");
+                sForm.setVisible(false);
+
+                 this.getView().byId("SmForm6").setVisible(false);
+
+                var form = this.getView().byId("SimpleFormChange354");
+                form.setVisible(true);
+
+
+                var edit = this.getView().byId("edit");
+                edit.setVisible(false);
+
+                this.getView().byId("save").setVisible(true);
+                this.getView().byId("cancel").setVisible(true);
+           },
+
+           handleCancelPress:function(){
+               debugger;
+
+               var form = this.getView().byId("SimpleFormChange354");
+                form.setVisible(false);
+
+                var sForm = this.getView().byId("SmForm1");
+                sForm.setVisible(true);
+
+                 var edit = this.getView().byId("edit");
+                edit.setVisible(true);
+
+                this.getView().byId("save").setVisible(false);
+                this.getView().byId("cancel").setVisible(false);
+
+                 this.getView().byId("SmForm6").setVisible(true);
+
+               
+
+
+
+           },
+           handleSavePress:function(){
+               debugger;
+               var IntId = this.getView().byId("idInput").getValue();
+               var IntName = this.getView().byId("nameInput").getValue();
+               var IntPno = this.getView().byId("noInput").getValue();
+               var IntAge = this.getView().byId("ageInput").getValue();
+               var IntAdress = this.getView().byId("addInput").getValue();
+               var IntCity = this.getView().byId("cityInput").getValue();
+
+               
+               
+               
+               var Payload = {};
+               
+               Payload.Eid = IntId;
+               Payload.Fullname = IntName;
+               Payload.Phoneno = IntPno;
+               Payload.Age = IntAge;
+               Payload.Address = IntAdress;
+               Payload.City = IntCity ;
+               
+               this.profileUpdate(Payload)
+              
+                this.getView().byId("SmForm1").setVisible(true);
+
+                var form = this.getView().byId("SimpleFormChange354");
+                form.setVisible(false);
+
+                 this.getView().byId("SmForm6").setVisible(true);
+
+                  
+                  this.getView().byId("edit").setVisible(true);
+                 this.getView().byId("save").setVisible(false);
+                 this.getView().byId("cancel").setVisible(false);
+
+
+
+
+          
+               
+           }
 
             
 		});

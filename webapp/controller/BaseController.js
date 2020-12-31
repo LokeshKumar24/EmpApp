@@ -132,5 +132,22 @@ sap.ui.define([
             });
 
             },
+            //profile update
+            profileUpdate(Payload){
+                 var serviceurl="/sap/opu/odata/sap/ZAPP_EMP_SRV/";
+  
+               var oPModel =  new sap.ui.model.odata.ODataModel(serviceurl);
+              oPModel .update("/PROFILESet('"+Payload.Eid+"')", Payload, {
+                     method: "PUT",
+                     success: function(data) {
+                    //   alert("success");
+                    sap.m.MessageToast.show("Updated Succesfully");
+                    },
+                     error: function(e) {
+                      alert("error");
+                    }
+                });
+
+            }
 		});
 	});
