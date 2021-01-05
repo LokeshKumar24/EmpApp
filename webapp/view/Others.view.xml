@@ -1,39 +1,77 @@
-<mvc:View controllerName="EA.EmployeeApp1.controller.Others" xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="EA.EmployeeApp1.controller.Others"
+ xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:sf="sap.ui.layout.form" 
+    xmlns:smartTable="sap.ui.comp.smarttable" displayBlock="true" xmlns="sap.m">
 
 		<App >
 			<pages>
-				<Page id="page" title="{i18n>others}" showHeader="false">
+				<Page  title="{i18n>others}" showHeader="false">
 					<content>
-                   	<!-- <smartTable:SmartTable entitySet=""
-			tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport"
-			useVariantManagement="false" useTablePersonalisation="true" header="Line Items"
-			showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true"
-			demandPopin="true" class="sapUiResponsiveContentPadding"/> -->
-
-                   
+   
                     <IconTabBar
-		id="idIconTabBarNoIcons"
-		expanded="{device>/isNoPhone}"
+		
 		class="sapUiResponsiveContentPadding">
 		<items>
 			<IconTabFilter  icon="sap-icon://upload" text="Time Sheet Upload" key="Time Sheet Upload">
+            <sf:SimpleForm >
+				<Label text=""></Label>
+				<Input  placeholder="Enter Emp Id"></Input>
+				<Label text=""></Label>
+				<Input type="Text" placeholder="Enter Emp Name "></Input>
+                <Label text="Enter Date" labelFor="DP1"/>
+		<DatePicker
+			
+			placeholder="Enter Date"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+				
+				
+				<Label text=""></Label>
+				<Input  type="Number" placeholder="Enter Time Sheet Name "></Input>
 				
                 <Button text="Time Sheet Upload" press="TimeSheetUpload" ></Button>
-			</IconTabFilter>
-			<IconTabFilter text="Files" icon="sap-icon://attachment" key="Files">
+				<Label></Label>
+				<Button text="Submit" type="Emphasized" press="onTimeSheet"></Button>
+                
+			</sf:SimpleForm>
 				
-                <Button text="Upload Files" press="FlesUpload" ></Button>
+			</IconTabFilter>
+
+			<IconTabFilter text="Files" icon="sap-icon://attachment" key="Files">
+
+              <sf:SimpleForm editable="true">
+				<Label text=""></Label>
+				<Input placeholder="Enter Emp Id"></Input>
+				<Label text=""></Label>
+				<Input  type="Text" placeholder="Enter Emp Name "></Input>
+                <Label text="Enter Date" labelFor="DP1"/>
+		<DatePicker
+	
+			placeholder="Enter Date"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+				
+				
+				<Label text=""></Label>
+				<Input  type="Number" placeholder="Enter File Name "></Input>
+				
+                <Button text="Time Sheet Upload" press="FileUpload" ></Button>
+				<Label></Label>
+				<Button text="Submit" type="Emphasized" press="onTimeSheet"></Button>
+                
+			</sf:SimpleForm>
+				
 			</IconTabFilter>
 
             <IconTabFilter text="Files Data" icon="sap-icon://table-view" key="Files">
 				
                 	
-		<smartTable:SmartTable entitySet="LineItemsSet" 
+		<!-- <smartTable:SmartTable entitySet="LineItemsSet" 
 			tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport"
 			useVariantManagement="false" useTablePersonalisation="true" header="Line Items"
 			showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true"
-			demandPopin="true" class="sapUiResponsiveContentPadding"/>
+			demandPopin="true" class="sapUiResponsiveContentPadding"/> -->
+
 			</IconTabFilter>
 			
 		</items>
